@@ -36,14 +36,43 @@
 
 #### 环境要求
 
-- Node.js >= 16.0.0
-- npm >= 7.0.0
+**必需环境**：
+- **Node.js** >= 16.0.0（推荐使用 LTS 版本）
+- **npm** >= 7.0.0（通常随 Node.js 一起安装）
 
-#### 安装依赖
-
+**验证环境**：
 ```bash
-npm install
+# 检查 Node.js 版本
+node --version
+
+# 检查 npm 版本
+npm --version
 ```
+
+如果未安装 Node.js，请访问 [Node.js 官网](https://nodejs.org/) 下载并安装。
+
+#### 完整配置步骤
+
+1. **克隆项目**：
+   ```bash
+   git clone https://github.com/chandlerye/MyNote2
+   cd MyNote2
+   ```
+
+2. **安装依赖**（重要：必须执行）：
+   ```bash
+   npm install
+   ```
+   
+   这一步会安装所有必需的依赖包（包括 Electron、React、TypeScript 等），可能需要几分钟时间。
+
+3. **验证安装**：
+   ```bash
+   # 查看可用的脚本命令
+   npm run
+   ```
+   
+   应该能看到 `dev`、`build:all`、`build:exe` 等脚本。
 
 #### 开发模式
 
@@ -64,6 +93,26 @@ npm run build:exe
 ```
 
 构建后的文件在 `release/win-unpacked/` 文件夹中。
+
+#### 常见问题
+
+**问题：`npm ERR! Missing script: "dev"`**
+
+**原因**：未安装依赖或不在项目根目录。
+
+**解决方法**：
+1. 确保在项目根目录（包含 `package.json` 的目录）
+2. 执行 `npm install` 安装依赖
+3. 检查 `package.json` 文件是否存在且完整
+
+**问题：`npm ERR! code ELIFECYCLE`**
+
+**原因**：依赖安装失败或 Node.js 版本不兼容。
+
+**解决方法**：
+1. 删除 `node_modules` 文件夹和 `package-lock.json`
+2. 重新执行 `npm install`
+3. 确保 Node.js 版本 >= 16.0.0
 
 ## 📁 项目结构
 
@@ -184,18 +233,33 @@ MyNote2/
 
 ### 开发环境设置
 
-1. 克隆项目：
+**重要：首次配置必须按顺序执行以下步骤**
+
+1. **安装 Node.js**（如果未安装）：
+   - 访问 [Node.js 官网](https://nodejs.org/) 下载 LTS 版本
+   - 安装后验证：`node --version` 和 `npm --version`
+
+2. **克隆项目**：
    ```bash
    git clone https://github.com/chandlerye/MyNote2
    cd MyNote2
    ```
 
-2. 安装依赖：
+3. **安装依赖**（必需步骤）：
    ```bash
    npm install
    ```
+   
+   ⚠️ **注意**：这一步会下载所有依赖包（约 200MB），需要几分钟时间。完成后会在项目根目录生成 `node_modules/` 文件夹。
 
-3. 启动开发模式：
+4. **验证安装**：
+   ```bash
+   npm run
+   ```
+   
+   应该能看到所有可用的脚本命令。
+
+5. **启动开发模式**：
    ```bash
    npm run dev
    ```

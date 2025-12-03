@@ -1,0 +1,7 @@
+{
+  "host": "您的服务器IP地址",
+  "port": 3306,
+  "database": "mynote2",
+  "user": "您的数据库用户名"
+}
+

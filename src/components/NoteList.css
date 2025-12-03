@@ -1,0 +1,230 @@
+.note-list {
+  width: 300px;
+  background: #fff;
+  border-right: 1px solid #e0e0e0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.note-list-header {
+  padding: 12px;
+  border-bottom: 1px solid #e0e0e0;
+  position: relative;
+  z-index: 100;
+}
+
+.category-selector-custom {
+  position: relative;
+  z-index: 1000;
+}
+
+.create-note-btn {
+  width: 100%;
+  padding: 10px;
+  background: #4a90e2;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.create-note-btn:hover {
+  background: #357abd;
+}
+
+.search-input {
+  width: 100%;
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 13px;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.search-input:focus {
+  border-color: #4a90e2;
+  box-shadow: 0 0 0 2px rgba(74, 144, 226, 0.1);
+}
+
+.note-list-content {
+  flex: 1;
+  overflow-y: auto;
+}
+
+.loading {
+  padding: 40px 20px;
+  text-align: center;
+  color: #666;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+}
+
+.loading-text {
+  font-weight: bold;
+}
+
+.loading-dots {
+  display: inline-flex;
+  gap: 2px;
+}
+
+.loading-dots .dot {
+  font-weight: bold;
+  animation: dotPulse 1.4s infinite;
+  opacity: 0;
+}
+
+.loading-dots .dot1 {
+  animation-delay: 0s;
+}
+
+.loading-dots .dot2 {
+  animation-delay: 0.2s;
+}
+
+.loading-dots .dot3 {
+  animation-delay: 0.4s;
+}
+
+@keyframes dotPulse {
+  0%, 60%, 100% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  30% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.empty-state {
+  padding: 20px;
+  text-align: center;
+  color: #999;
+  font-size: 14px;
+}
+
+.note-item {
+  padding: 12px;
+  border-bottom: 1px solid #f0f0f0;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.note-item:hover {
+  background: #f9f9f9;
+}
+
+.note-item.active {
+  background: #e8f4fd;
+  border-left: 3px solid #4a90e2;
+}
+
+.note-item-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 6px;
+}
+
+.note-title-wrapper {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  margin-right: 8px;
+  overflow: hidden;
+}
+
+.pin-icon {
+  margin-right: 4px;
+  font-size: 12px;
+}
+
+.note-title {
+  font-size: 15px;
+  font-weight: 600;
+  color: #333;
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.note-actions {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+}
+
+.pin-btn {
+  background: none;
+  border: none;
+  font-size: 14px;
+  cursor: pointer;
+  padding: 2px 4px;
+  line-height: 1;
+  opacity: 0;
+  transition: opacity 0.2s, transform 0.2s;
+}
+
+.note-item:hover .pin-btn {
+  opacity: 1;
+}
+
+.pin-btn:hover {
+  transform: scale(1.2);
+}
+
+.note-item.pinned {
+  background: #fff9e6;
+  border-left: 3px solid #ffa500;
+}
+
+.note-item.pinned:hover {
+  background: #fff5d6;
+}
+
+.delete-btn {
+  background: none;
+  border: none;
+  font-size: 20px;
+  color: #999;
+  cursor: pointer;
+  padding: 0 4px;
+  line-height: 1;
+  opacity: 0;
+  transition: opacity 0.2s, color 0.2s;
+}
+
+.note-item:hover .delete-btn {
+  opacity: 1;
+}
+
+.delete-btn:hover {
+  color: #e74c3c;
+}
+
+.note-preview {
+  font-size: 13px;
+  color: #666;
+  margin-bottom: 6px;
+  line-height: 1.4;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.note-time {
+  font-size: 11px;
+  color: #999;
+}
+

@@ -1,0 +1,27 @@
+.mode-selector {
+  display: flex;
+  gap: 8px;
+}
+
+.mode-btn {
+  padding: 6px 16px;
+  border: 1px solid #e0e0e0;
+  background: #fff;
+  border-radius: 4px;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.2s;
+  color: #666;
+}
+
+.mode-btn:hover {
+  background: #f5f5f5;
+  border-color: #ccc;
+}
+
+.mode-btn.active {
+  background: #4a90e2;
+  color: white;
+  border-color: #4a90e2;
+}
+

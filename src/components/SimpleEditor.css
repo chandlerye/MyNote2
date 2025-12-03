@@ -1,0 +1,176 @@
+.simple-editor {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  overflow: hidden;
+}
+
+.simple-editor.empty {
+  justify-content: center;
+  align-items: center;
+}
+
+.empty-editor {
+  text-align: center;
+  color: #999;
+  font-size: 16px;
+}
+
+.editor-header {
+  padding: 16px 24px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.title-input {
+  width: 100%;
+  font-size: 24px;
+  font-weight: 600;
+  border: none;
+  outline: none;
+  color: #333;
+  background: transparent;
+}
+
+.title-input::placeholder {
+  color: #ccc;
+}
+
+.toolbar {
+  display: flex;
+  gap: 8px;
+  padding: 12px 24px;
+  border-bottom: 1px solid #e0e0e0;
+  background: #f9f9f9;
+}
+
+.toolbar button {
+  padding: 6px 12px;
+  border: 1px solid #ddd;
+  background: #fff;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.2s;
+}
+
+.toolbar button:hover {
+  background: #f0f0f0;
+  border-color: #4a90e2;
+}
+
+.toolbar button:active {
+  background: #e0e0e0;
+}
+
+.editor-content {
+  flex: 1;
+  padding: 24px;
+  overflow-y: auto;
+  font-size: 15px;
+  line-height: 1.6;
+  color: #333;
+  outline: none;
+  min-height: 200px;
+  cursor: text;
+  user-select: text;
+  -webkit-user-select: text;
+}
+
+/* 确保图片包装器不会阻止文本输入 */
+.editor-content .image-resize-wrapper {
+  /* 作为内联元素，不会阻止文本输入 */
+  /* 但可以接收鼠标事件用于显示调整手柄 */
+}
+
+.editor-content:empty::before {
+  content: attr(data-placeholder);
+  color: #999;
+  pointer-events: none;
+}
+
+.editor-content:focus {
+  outline: none;
+}
+
+.editor-content img {
+  max-width: 100%;
+  height: auto;
+  margin: 10px 0;
+  display: block;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+/* 如果图片在包装器中，不显示悬停效果（由包装器处理） */
+.editor-content .image-resize-wrapper:hover img {
+  opacity: 0.9;
+  outline: 2px dashed #4a90e2;
+  outline-offset: 2px;
+}
+
+/* 图片调整手柄容器 */
+.image-resize-wrapper {
+  position: relative;
+  display: inline-block;
+  max-width: 100%;
+  margin: 10px 0;
+  vertical-align: middle;
+  /* 允许接收鼠标事件以显示调整手柄 */
+}
+
+.image-resize-wrapper img {
+  margin: 0;
+  display: block;
+  max-width: 100%;
+  height: auto;
+  vertical-align: middle;
+}
+
+/* 调整手柄 */
+.resize-handle {
+  position: absolute;
+  background: #4a90e2;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  width: 12px;
+  height: 12px;
+  z-index: 10;
+  cursor: nwse-resize;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  display: none; /* 默认隐藏 */
+  pointer-events: auto; /* 确保可以点击和拖拽 */
+}
+
+.resize-handle.nw { top: -6px; left: -6px; cursor: nwse-resize; }
+.resize-handle.ne { top: -6px; right: -6px; cursor: nesw-resize; }
+.resize-handle.sw { bottom: -6px; left: -6px; cursor: nesw-resize; }
+.resize-handle.se { bottom: -6px; right: -6px; cursor: nwse-resize; }
+.resize-handle.n { top: -6px; left: 50%; transform: translateX(-50%); cursor: ns-resize; }
+.resize-handle.s { bottom: -6px; left: 50%; transform: translateX(-50%); cursor: ns-resize; }
+.resize-handle.w { top: 50%; left: -6px; transform: translateY(-50%); cursor: ew-resize; }
+.resize-handle.e { top: 50%; right: -6px; transform: translateY(-50%); cursor: ew-resize; }
+
+/* 鼠标悬停时显示调整手柄 */
+.image-resize-wrapper:hover .resize-handle {
+  display: block;
+}
+
+.image-resize-wrapper.resizing {
+  user-select: none;
+}
+
+.image-resize-wrapper.resizing img {
+  pointer-events: none;
+}
+
+.editor-content p {
+  margin: 0.5em 0;
+}
+
+.editor-content ul,
+.editor-content ol {
+  margin: 0.5em 0;
+  padding-left: 2em;
+}
+

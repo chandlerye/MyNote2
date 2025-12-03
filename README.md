@@ -91,6 +91,8 @@ MyNote2/
 │   ├── 云服务器MySQL配置步骤.md  # 云端数据库配置指南
 │   ├── 云端MySQL建表脚本.sql     # MySQL 建表脚本
 │   └── cloud-config-template.json  # 配置文件模板
+├── build/                     # 构建资源（编译必需）
+│   └── icon.png              # 应用图标（electron-builder 需要）
 ├── package.json               # 项目配置
 ├── package-lock.json         # 依赖锁定文件
 ├── tsconfig.json              # TypeScript 配置（根配置）
@@ -102,7 +104,6 @@ MyNote2/
 └── README.md                  # 项目说明
 
 # 以下文件夹/文件不在仓库中（由 .gitignore 排除）：
-# - build/          # 构建资源（应用图标等）
 # - dist/           # 编译输出
 # - release/        # 打包输出（EXE 文件）
 # - node_modules/   # 依赖包

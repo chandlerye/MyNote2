@@ -12,6 +12,7 @@ build/
 # IDE
 .vscode/
 .idea/
+.cursor/
 *.swp
 *.swo
 
@@ -35,4 +36,3 @@ release/
 cloud-config.json
 cloud-password.enc
 app-config.json
-
